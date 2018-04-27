@@ -14,7 +14,7 @@
 
 int main(int argc, char**argv) {
 
-    int ans= 1;
+    int ans = -1;
     stack Stack;
     
     crear_array(&Stack);
@@ -67,7 +67,7 @@ int crear_array(stack *Stack){
 int pop(stack *Stack){
     
     
-    if (Stack->top_pos = -1){
+    if (Stack->top_pos == -1){
         
         printf("esta vacio \n");
         return (ERROR);
@@ -96,7 +96,7 @@ int push(stack *Stack, int element){
     
     else if (Stack->top_pos == -1){
         
-        Stack->top_pos = 0;
+        Stack->top_pos = Stack->top_pos + 1 ;
         Stack->array[Stack->top_pos] = element;
         Stack->top= Stack->array[Stack->top_pos];
         
