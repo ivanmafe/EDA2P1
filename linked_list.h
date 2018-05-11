@@ -7,19 +7,19 @@ typedef struct _Node {
     WordInfo data;
     struct _Node* next;
     struct _Node* prev;
-} Node;
+}Node;
 
 typedef struct {
     Node* start;
-} LinkedList;
+}LinkedList;
 
-void init_list(LinkedList* l);
-void clear_list(LinkedList* l);
+void init_list(LinkedList* list);
+void clear_list(LinkedList* list);
 
-void insert_into_list(LinkedList* l, WordInfo wi);
-WordInfo* find_first_in_list(LinkedList* l, char* word);
-int delete_from_list(LinkedList* l, char* word);
+void insert_into_list(LinkedList* list, WordInfo wi);
+WordInfo* find_first_in_list(LinkedList* list, char* word);
+int delete_from_list(LinkedList* list, char* word);
 
-void print_list(LinkedList* l);
+void print_list(LinkedList* list);
 
 #endif
