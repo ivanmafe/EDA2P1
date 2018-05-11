@@ -13,7 +13,7 @@ typedef struct {
 } HashTable;
 
 void init_table(HashTable* table);
-void clear_table(HashTable* table);
+void clear_table(HashTable* table);//Hacer free para liberar la memória dinámica
 int size(HashTable* table);
 
 bool insert_word_info(HashTable* table, WordInfo wi);
