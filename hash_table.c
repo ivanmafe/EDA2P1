@@ -9,17 +9,41 @@ int hash_function(char* word) {
 }
 
 void init_table(HashTable* table) {
+    table->list->start=NULL;
+    table->size=0;
 }
 
 void clear_table(HashTable* table) {
+    free(table);
 }
 
 int size(HashTable* table) {
-    return ERROR;
+    int size_table;
+    size_table=table->size;
+    if (size_table!='NULL')
+    {
+        return(size_table);
+    }
+    else 
+    {
+        return (ERROR);
+    }
 }
 
 bool insert_word_info(HashTable* table, WordInfo wi) {
-    return FALSE;
+        char categoria;
+    categoria=wi.pos;
+    strcpy(table->list->start->data.word,wi.word);
+    strcpy(table->list->start->data.definition,wi.definition);
+    table->list->start->data.pos = categoria;
+    if (table->list->start->data.word==wi.word && table->list->start->data.definition == wi.definition && table->list->start->data.pos == categoria )
+    {
+        return (TRUE);
+    }
+    else 
+    {
+        return FALSE;
+    }
 }
 
 bool exists_word(HashTable* table, char* word) {
