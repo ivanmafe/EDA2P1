@@ -11,6 +11,7 @@ void init_list(LinkedList* list) {
     first = (Node*) calloc (1,sizeof(Node));
     
     list->start = first; 
+    list->last = list->start;
     
 } //OK
 
