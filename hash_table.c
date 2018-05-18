@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "hash_table.h"
 #include "sort.h"
@@ -20,10 +21,9 @@ void clear_table(HashTable* table) {
 int size(HashTable* table) {
     int size_table;
     size_table=table->size;
-    if (size_table!='NULL')
-    {
+    if (size_table != 0)
         return(size_table);
-    }
+    
     else 
     {
         return (ERROR);
@@ -33,7 +33,7 @@ int size(HashTable* table) {
 bool insert_word_info(HashTable* table, WordInfo wi) {
         char categoria;
     categoria=wi.pos;
-    strcpy(table->list->start->data.word,wi.word);
+    strcpy(table->list->start->data.word, wi.word);
     strcpy(table->list->start->data.definition,wi.definition);
     table->list->start->data.pos = categoria;
     if (table->list->start->data.word==wi.word && table->list->start->data.definition == wi.definition && table->list->start->data.pos == categoria )
