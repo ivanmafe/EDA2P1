@@ -18,12 +18,8 @@ void init_list(LinkedList* list) {
 void clear_list(LinkedList* list) {
     
     Node* pos; //we create a auxiliary node equal to the first of the list
-    pos = list->start;
+    pos = list->last;
     
-    
-    while (pos->next != NULL){
-        pos = pos->next; // we go to the last position of the list
-    }
     
     while (pos->prev != NULL){
         
