@@ -110,15 +110,16 @@ int delete_from_list(LinkedList* list, char* word) {
     
 }//OK
 
+
 void print_list(LinkedList* list) {
     
-    Node* xd;
-    xd = list->start;
+    Node* aux;
+    aux = list->start;
     
-    printf("Words with : %c", xd->data.pos); 
+    printf("Words with : %c", aux->data.pos); 
     
-    while (xd->next != NULL){
-        printf("\t%s  :  %s",xd->data.word,xd->data.definition);
+    while (aux->next != NULL){
+        printf("\t%s  :  %s",aux->data.word,aux->data.definition);
        
     }
     
