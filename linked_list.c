@@ -49,7 +49,9 @@ void clear_list(LinkedList* list) {
  */
 void insert_into_list(LinkedList* list, WordInfo wi) {
     
-    
+    list->last->next = wi;
+    list->last->next->prev = list->last;
+    list->last = list->last->next;
     
 }
 
