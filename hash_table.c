@@ -6,7 +6,10 @@
 #include "sort.h"
 
 int hash_function(char* word) {
-    return ERROR;
+        int  pos;
+    pos = word[0];
+    pos = pos-97; 
+    return (pos);
 }
 
 void init_table(HashTable* table) {
