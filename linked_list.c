@@ -49,9 +49,20 @@ void clear_list(LinkedList* list) {
  */
 void insert_into_list(LinkedList* list, WordInfo wi) {
     
-    list->last->next = wi;
-    list->last->next->prev = list->last;
-    list->last = list->last->next;
+    Node *newnode;
+    
+    newnode = (Node*) calloc (1,sizeof(Node));
+    
+    
+    strcpy(newnode->data.definition, wi.definition);
+    strcpy(newnode->data.word, wi.word);
+    newnode->data.pos = wi.pos;
+ 
+    
+    list->last->next = newnode;
+    newnode->next = NULL;
+    newnode->prev = list->last;
+    list->last = newnode;
     
 }
 
