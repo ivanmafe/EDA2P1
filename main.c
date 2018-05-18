@@ -21,7 +21,12 @@ int main(int argc, char *argv[]) {
     int i;
     for(i=0; i<info_size; i++) {
         //print_word_info(info_list[i]);
-        insert_word_info(&dict, info_list[i]);
+        int res = insert_word_info(&dict, info_list[i]);
+        if (res == FALSE){
+            printf("La palabra \"%s\" ya está en el diccionario.\n", info_list[i]->word);
+        }else{
+            printf("Introducida la palabra \"%s\" en el diccionario.\n");
+        }
     }
     printf("Dictionary loaded!\n");
 
