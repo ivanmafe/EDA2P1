@@ -50,16 +50,77 @@ bool insert_word_info(HashTable* table, WordInfo wi) {
 }
 
 bool exists_word(HashTable* table, char* word) {
+    
+    Node *aux;
+    aux = table->list->start;
+    
+    while (aux->next != NULL){
+        
+        if (strcmp(aux->data.word,word)==0)
+            return (TRUE);
+        
+        else
+            aux = aux->next;
+      
+    }
+    
     return FALSE;
 }
 
 bool delete_word(HashTable* table, char* word) {
-    return FALSE;
+    
+    
+    Node *aux; 
+    
+    if (exists_word(table, word)==FALSE){
+        printf("This word does not exist \n");
+        return(ERROR);
+    }
+    
+    else { 
+        
+    while (aux->next != NULL){
+        
+        if (strcmp(aux->data.word,word)==0){
+            aux->prev->next = aux->next;
+            aux->next->next = aux->prev;
+            strcpy(aux->data.definition,"\0");
+            strcpy(aux->data.word, "\0");
+            aux->data.pos = '\0';
+            return(SUCCESS);
+            
+        }
+     
+    }
+    }
+   
 }
 
 WordInfo* find_word(HashTable* table, char* word) {
-    return NULL;
+    
+    if (exists_word(table,word) == FALSE){
+        printf("This word does not exist in the dictionary... \n");
+        return NULL;
+    }
+    else if (exists_word(table,word) == TRUE){
+        
+        int pos = hash_function(word);
+        LinkedList *aux = &(table->list[pos]);
+        return(find_first_in_list(aux, word));
+        
+       
+    }
+  
 }
 
 void print_sorted_word_info(HashTable* table) {
-}
+    
+   
+    LinkedList *printer;
+    
+    for (int i = 0 ; i < table->size; i++){
+        printer = &(table->list[i]); 
+        print_list(printer); 
+
+    }
+} 
