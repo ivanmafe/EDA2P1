@@ -41,11 +41,11 @@ bool insert_word_info(HashTable* table, WordInfo wi) {
     table->list->start->data.pos = categoria;
     if (table->list->start->data.word==wi.word && table->list->start->data.definition == wi.definition && table->list->start->data.pos == categoria )
     {
-        return (TRUE);
+        return (SUCCESS);
     }
     else 
     {
-        return FALSE;
+        return (ERROR);
     }
 }
 
