@@ -11,6 +11,7 @@ typedef struct _Node {
 
 typedef struct {
     Node* start;
+    Node* last;
 }LinkedList;
 
 void init_list(LinkedList* list);
