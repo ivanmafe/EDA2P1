@@ -10,8 +10,10 @@ typedef struct _Node {
 }Node;
 
 typedef struct {
+    
     Node* start;
-    Node* last;
+    //Node* last;
+    
 }LinkedList;
 
 void init_list(LinkedList* list);
