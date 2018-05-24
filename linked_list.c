@@ -7,19 +7,24 @@
 
 void init_list(LinkedList* list) {
     
+    
     Node* first;
     first = (Node*) calloc (1,sizeof(Node));
     
     list->start = first; 
-    list->last = list->start;
+    //list->last = list->start;
     
 } //OK
 
 void clear_list(LinkedList* list) {
     
     Node* pos; //we create a auxiliary node equal to the first of the list
-    pos = list->last;
+    pos = list->start;
     
+    
+    while (pos->next != NULL){
+        pos = pos->next; // we go to the last position of the list
+    }
     
     while (pos->prev != NULL){
         
@@ -49,45 +54,43 @@ void insert_into_list(LinkedList* list, WordInfo wi) {
     
     newnode = (Node*) calloc (1,sizeof(Node));
     
+    newnode->data = wi;
     
-    strcpy(newnode->data.definition, wi.definition);
-    strcpy(newnode->data.word, wi.word);
-    newnode->data.pos = wi.pos;
+    
+    //strcpy(newnode->data.definition, wi.definition);
+    //strcpy(newnode->data.word, wi.word);
+    //newnode->data.pos = wi.pos;
  
+    if (list->start == NULL){
+        list->start = newnode; 
+        newnode->prev = NULL; 
+        newnode->next = NULL; 
+    }
+    else {  
+    newnode->next = list->start;
+    newnode->prev = NULL;
+   
+    list->start->prev = newnode;
+    list->start = newnode;
     
-    list->last->next = newnode;
-    newnode->next = NULL;
-    newnode->prev = list->last;
-    list->last = newnode;
     
+    }
 }
 
 WordInfo* find_first_in_list(LinkedList* list, char* word) {
     
-    Node *node;
-    WordInfo *ans;
+    Node* aux = list->start;
     
-    node = list->start;
-    while (node->next != NULL){
-       
-    if (strcmp (node->data.word,word) == 0 ){
-        
-        strcmp(ans->definition,node->data.definition);
-        strcmp(ans->word,node->data.word);
-        ans->pos = node->data.pos;
-        
-        return (ans);
+    while(aux!=NULL){
+        if (strcmp(aux->data.word , word) == 0){
+         return (&(aux->data));
+        }
+        aux = aux->next;
+     
     }
-    
-    else {
-        
-        node = node->next;
-        
-    }
-    
-    }
-    
+  
     return NULL;
+
 } //OK
 
 int delete_from_list(LinkedList* list, char* word) {
@@ -126,10 +129,14 @@ void print_list(LinkedList* list) {
     Node* aux;
     aux = list->start;
     
-    printf("Words with : %c", aux->data.pos); 
     
-    while (aux->next != NULL){
-        printf("\t%s  :  %s",aux->data.word,aux->data.definition);
+    
+    printf("Words with : %c \n", aux->data.word[0] ); 
+    
+    while (aux != NULL){
+        
+        printf("\t%s  :  %s \n",aux->data.word,aux->data.definition);
+        aux = aux->next;
        
     }
     
