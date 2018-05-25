@@ -46,4 +46,8 @@ int read_query_file(char* path, char* query_list[]) {
     fclose(fd);
     
     return count;
-}
+} 
+
+/*
+ *  65 - 90 mayus 
+ */
