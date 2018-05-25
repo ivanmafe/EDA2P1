@@ -54,5 +54,6 @@ int main(int argc, char *argv[]) {
 
     printf("\nDone!\n");
 
+    clear_table(&dict);
     return 0;
 }
