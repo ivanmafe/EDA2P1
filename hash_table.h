@@ -8,8 +8,10 @@
 #define INVALID_WORD -1
 
 typedef struct {
+    
     LinkedList list[N];
     int size;
+    
 } HashTable;
 
 void init_table(HashTable* table);
