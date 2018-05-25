@@ -7,14 +7,11 @@ typedef struct _Node {
     WordInfo data;
     struct _Node* next;
     struct _Node* prev;
-}Node;
+} Node;
 
 typedef struct {
-    
     Node* start;
-    //Node* last;
-    
-}LinkedList;
+} LinkedList;
 
 void init_list(LinkedList* list);
 void clear_list(LinkedList* list);
