@@ -4,22 +4,54 @@
 
 #include "sort.h"
 
-void sort(char** toSort, int size){ 
-    int i, j;
-    char buffer[size ];
-    
-    for(i = 0; i < size; i++){
-        j = i+1;
-        printf("\nIteracion %d\n", i);
+void sort(char** toSort, int size) {
 
-        while (j < size) {
-            if (strcmp(toSort[i], toSort[j]) > 0) {
-                printf("Swapping \"%s\" and \"%s\"\n", toSort[i], toSort[j]);
-                strncpy(buffer, toSort[i], size);
-                strncpy(toSort[i], toSort[j], size);
-                strncpy(toSort[j], buffer, size);
+    /*
+    if (size > 1) {
+        
+        int i = 1; //we start by the position 1 (makes no sense to start by 0)
+        int j = 0; //previous element on the array
+        char *aux;
+        while (i < size) {
+            int a = i;
+            int b = j;
+            while (strcmp(toSort[a], toSort[b]) < 0) {
+                aux = toSort[i];
+                strcpy(toSort[i], toSort[i + 1]);
+                strcpy(toSort[i + 1], aux);
+                a--;
+                b--;
             }
+            i++;
             j++;
         }
+        
     }
+     */
+
+    if (size > 1) {
+        int i = 0;
+        int a = 1;
+        char *aux;
+
+        while (i < size) {
+
+            a = 1;
+            while (a < size) {
+                if (strcmp(toSort[a - 1], toSort[a]) > 0) {
+                    aux = toSort[a - 1];
+                    toSort[a - 1] = toSort[a];
+                    toSort[a] = aux;
+
+                }
+                a++;
+
+            }
+
+            i++;
+        }
+    }
+
+
 }
+
