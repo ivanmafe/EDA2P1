@@ -23,7 +23,14 @@ void init_table(HashTable* table) {
 }
 
 void clear_table(HashTable* table) {
-    free(table);
+
+    for (int i = 0; i < N; i++) {
+        if (table->list[i].start != NULL) {
+            clear_list(&table->list[i]);
+        }
+    }
+    table->size = 0;
+
 }
 
 int size(HashTable* table) {
@@ -43,8 +50,7 @@ bool insert_word_info(HashTable* table, WordInfo wi) {
 
     if ((pos < 0 || pos > N)) {
         return FALSE;
-    }
-    else {
+    } else {
 
         insert_into_list(&table->list[pos], wi);
         return TRUE;
@@ -75,8 +81,7 @@ bool delete_word(HashTable* table, char* word) {
     if (exists_word(table, word) == FALSE) {
         printf("This word does not exist \n");
         return (ERROR);
-    }
-    else {
+    } else {
 
         while (aux->next != NULL) {
 
@@ -105,22 +110,54 @@ WordInfo* find_word(HashTable* table, char* word) {
         int pos = hash_function(word);
         //LinkedList *aux = &(table->list[pos]);
         return (find_first_in_list(&(table->list[pos]), word));
-        
+
     }
 
 }
 
 void print_sorted_word_info(HashTable* table) {
 
-    LinkedList *printer;
-    int i;
+
+    int x; // amount of words in each list
+
+    Node *aux;
 
 
-    for (i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++) {
+
         if (table->list[i].start != NULL) {
-            printer = &(table->list[i]);
-            print_list(printer);
+
+            //calculamos el numero de palabras que hay
+            x = 0;
+            char** order;
+            aux = table->list[i].start;
+            while (aux != NULL) {
+                x++;
+                aux = aux->next;
+            }
+
+            order = (char**) calloc(x, sizeof (char*));
+
+            int pos = 0;
+            aux = table->list[i].start;
+            while (aux != NULL) {
+                order[pos] = aux->data.word;
+                pos++;
+                aux = aux->next;
+            }
+
+            sort(order, x);
+
+
+            int val = 0;
+            while (val < x) {
+                WordInfo* wi = find_word(table, order[val]);
+                printf(" %s  : %s\n", order[val], wi->definition);
+                val++;
+            }
+
+
         }
 
     }
-} 
+}
