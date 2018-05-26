@@ -4,6 +4,14 @@
 
 #include "sort.h"
 
+
+/* 
+La funcion sort es la que se encargará de que en caso de que en una letra de nuestro diccionario
+contenga mas de una entrada, lo que hará esta función es ordenar las palabras en orden
+alfabético. Para poder ordenar de manera alfabética las palabras hemos utilizado como base un algoritmo 
+visto en un seminario de clase.
+*/
+
 void sort(char** toSort, int size) {
 
 
