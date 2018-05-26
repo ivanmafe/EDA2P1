@@ -5,6 +5,11 @@
 #include "commons.h"
 #include "linked_list.h"
 
+/*
+La función init_list lo que hace es inicializar la lista que nosotros le pasemos como parámetro, es decir
+hacemos la reserva de memória de cada nodo utilizando la función calloc y definimos cual será el principio 
+de nuestra lista mediante un nodo que hemos creado.
+*/
 void init_list(LinkedList* list) {
 
 
@@ -15,38 +20,44 @@ void init_list(LinkedList* list) {
 
 
 } //OK
+/*
+La función clear_list lo que hará es liberar toda nuestra lista de todos los datos que contenga.
+Para poder hacer esto lo que haremos es crear un nodo auxilir igual al primero de la lista a través del
+cual iremos recorriendo todos los apartados de nuestra lista poniendolos a NULL. Finalmente lo que haremos
+es un free del comienzo de nuestra lista
+*/
 
 void clear_list(LinkedList* list) {
 
-    Node* pos; //we create a auxiliary node equal to the first of the list
+    Node* pos; //Creamos un nodo auxiliar igual al primero de la lista
     pos = list->start;
 
 
     while (pos->next != NULL) {
-        pos = pos->next; // we go to the last position of the list
+        pos = pos->next; // Vamos a la última posición de la lista
     }
 
     while (pos->prev != NULL) {
 
-        strcpy(pos->data.definition, "\0"); //we delete the word info
+        strcpy(pos->data.definition, "\0"); //Borramos la word info
         pos->data.pos = '\0';
         strcpy(pos->data.word, "\0");
 
-        pos = pos->prev; //we now evaluate the previous element
+        pos = pos->prev; //Evaluamos el elemento anterior 
         pos->next->prev = NULL;
-        free(pos->next); //we release the first node
+        free(pos->next); //Liberamos el primer nodo
 
-        pos->next = NULL; // we delete the connection with the element we wanted to delete
-
+        pos->next = NULL; // Borramos la conexion con el elemento que queríamos borrar
     }
 
-    free(list->start); //we release the space of the first node we created
-
+    free(list->start); // Liberamos el espacio del primer nodo que hemos creado
 } //OK
 
 /*
- * This funtion must be summoned by the one that takes the word and definition
- * and sorts it in the hash table
+ * Esta funcion ha de ser llamada por una que coje la palabra con su definición
+ * y la ordena en la hash table.
+ * Lo que hacemos es crear un nuevo nodo en el cual nosotros meteremos toda la información que queramos 
+ * guardar y lo introduciremos a nuestra lista.
  */
 void insert_into_list(LinkedList* list, WordInfo wi) {
 
