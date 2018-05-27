@@ -4,7 +4,17 @@
 #include "hash_table.h"
 #include "file_utils.h"
 #include "main.h"
+/*
 
+ * EDA II - Practice 1
+ * Practice Group : P302
+ *    - Daniel Sanchez (207554)
+ *    - Joan Moya (206659)
+ *    - Iván Martínez (206638)
+ * Group ID : 33
+ * 
+ *
+ */
 
 int main(int argc, char *argv[]) {
     
