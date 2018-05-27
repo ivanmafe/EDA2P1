@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "hash_table.h"
-#include "file_utils.h"
-#include "main.h"
+
 /*
 
  * EDA II - Practice 1
@@ -15,6 +10,13 @@
  * 
  *
  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "hash_table.h"
+#include "file_utils.h"
+#include "main.h"
 
 int main(int argc, char *argv[]) {
     
