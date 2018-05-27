@@ -1,8 +1,12 @@
-/* 
- * File:   main.h
- * Author: francesco
+ /*
+ * EDA II - Practice 1
+ * Practice Group : P302
+ *    - Daniel Sanchez (207554)
+ *    - Joan Moya (206659)
+ *    - Iván Martínez (206638)
+ * Group ID : 33
+ * 
  *
- * Created on May 4, 2018, 7:37 PM
  */
 
 #ifndef MAIN_H
