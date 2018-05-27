@@ -80,9 +80,6 @@ void insert_into_list(LinkedList* list, WordInfo wi) {
     newnode->data = wi;
 
 
-    //strcpy(newnode->data.definition, wi.definition);
-    //strcpy(newnode->data.word, wi.word);
-    //newnode->data.pos = wi.pos;
 
     if (list->start == NULL) {
         list->start = newnode;
