@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
- * File:   commons.h
- * Author: francesco
+ * commons.h
  *
- * Created on May 4, 2018, 6:37 PM
+ * EDA II - Practice 1
+ * Practice Group : P302
+ *    - Daniel Sanchez (207554)
+ *    - Joan Moya (206659)
+ *    - Iván Martínez (206638)
+ * Group ID : 33
+ * 
  */
 
 #ifndef COMMONS_H
