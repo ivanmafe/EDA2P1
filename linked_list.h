@@ -1,6 +1,15 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
-
+/*
+ * EDA II - Practice 1
+ * Practice Group : P302
+ *    - Daniel Sanchez (207554)
+ *    - Joan Moya (206659)
+ *    - Iván Martínez (206638)
+ * Group ID : 33
+ * 
+ *
+ */
 #include "word_info.h"
 
 typedef struct _Node {
