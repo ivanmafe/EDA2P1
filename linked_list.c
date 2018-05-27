@@ -4,6 +4,16 @@
 
 #include "commons.h"
 #include "linked_list.h"
+/*
+ * EDA II - Practice 1
+ * Practice Group : P302
+ *    - Daniel Sanchez (207554)
+ *    - Joan Moya (206659)
+ *    - Iván Martínez (206638)
+ * Group ID : 33
+ * 
+ *
+/*
 
 /*
 *La función init_list lo que hace es inicializar la lista que nosotros le pasemos como parámetro, es decir
